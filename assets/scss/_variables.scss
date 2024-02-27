@@ -1,0 +1,27 @@
+/*variables-styles*/
+:root{
+  --main-title: 4rem;
+  --normal-text: 1rem;
+  --big-text: 2rem;
+  --average-text: 1.2rem;
+  --low-text: 0.9rem;
+  --slider-text: 1.25rem;
+}
+@mixin grid-column{
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-gap: 1rem;
+}
+@mixin grid-row{
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: start;
+  grid-gap: 1rem;
+}
+@mixin hover-effect{
+  &:hover, &:active, &:focus{
+    filter: opacity(50%);
+  }
+}

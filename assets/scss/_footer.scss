@@ -1,0 +1,13 @@
+/*footer-styles*/
+.footer{
+  background-color: var(--block-bg);
+  border-top: 2px solid var(--hover-bg);
+  width: 100%;
+}
+.footer-wrapper{
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
