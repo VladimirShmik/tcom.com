@@ -1,0 +1,48 @@
+/*content-page*/
+.rank-math-breadcrumb{
+  background-color: var(--block-bg);
+  border: 2px solid var(--hover-bg);
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  a{
+    color: var(--main-title-color);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .separator{
+    color: var(--main-title-color);
+    font-size: 1rem;
+  }
+  .last{
+    color: var(--main-title-color);
+    font-size: 1rem;
+  }
+}
+.content-wrapper{
+  &__title{
+    font-weight: 800;
+    font-size: var(--big-text);
+    padding-bottom: 2px;
+    color: var(--main-title-color);
+    margin-bottom: 0.5rem;
+  }
+}
+.content-description{
+  margin-bottom: 2rem;
+  p{
+    font-weight: 600;
+    font-size: var(--average-text);
+    color: #4d589d;
+  }
+}
+.production-grid--content{
+  .faq-link{
+    padding-left: 0;
+  }
+  .faq-link__text{
+    max-width: 100%;
+    font-size: var(--hight-text);
+  }
+}

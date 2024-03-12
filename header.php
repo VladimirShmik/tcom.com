@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -44,22 +44,7 @@
                             </nav>
                             <div class="header-block">
                                 <div class="lang-block">
-                                    <?php $lang_array = pll_the_languages(array('hide_current' => 0, 'raw' => 1)); ?>
-                                    <?php if ($lang_array) : ?>
-                                        <div class="dropdown lang-dropdown">
-                                            <button class=" dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                <?php echo pll_current_language('name') ?>
-                                            </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <?php foreach ($lang_array as $lang) : ?>
-                                                    <a href="<?php echo $lang['url']; ?>" class="dropdown-item">
-                                                        <?php echo $lang['name']; ?>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                    <?php endif; ?>
+                                    <?php echo do_shortcode('[weglot_switcher]'); ?>
                                 </div>
                                 <button type="button" class="theme-button">
                                     <span class="theme-button__btn">Light</span>

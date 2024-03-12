@@ -43,52 +43,32 @@
                         <div class="swiper swiperNews">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
+                                <?php $args = array(
+                                    'posts_per_page' => 10,
+                                    'category_name' => 'obnovleniya, updates'
+                                );
+                                $query = new WP_Query($args);
+                                if ($query->have_posts()) {
+                                    while ($query->have_posts()) {$query->the_post(); ?>
+                                        <!-- Slides -->
+                                        <div class="swiper-slide">
+                                            <div class="swiper-block">
+                                                <h4 class="swiper-block__title"><?php the_title(); ?></h4>
+                                                <?php
+                                                if(has_post_thumbnail()) {
+                                                    the_post_thumbnail();
+                                                } else {
+                                                    echo '<img src="' . get_bloginfo("template_url") . '/assets/img/img-guides.png  " />';
+                                                }?>
+                                                <time class="swiper-block__time">Дата выхода: <b><?php the_date(); ?></b></time>
+                                                <a href="<?php the_permalink(); ?>" class="swiper-block__link">Подробнее</a>
+                                            </div>
+                                        </div>
+                                    <?php }
+                                    wp_reset_postdata();
+                                } else
+                                    echo '<p class="faq-text">Записи отсутствуют</p>'; ?>
                                 <!-- Slides -->
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <h4 class="swiper-block__title">TCOM 15.01v</h4>
-                                        <img class="swiper-block__img"
-                                             src="<?php echo bloginfo('template_url'); ?>/assets/img/slider-example.png">
-                                        <time class="swiper-block__time">Дата выхода: <b>11.11.2023</b></time>
-                                        <a href="#" class="swiper-block__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <h4 class="swiper-block__title">TCOM 15.02v</h4>
-                                        <img class="swiper-block__img"
-                                             src="<?php echo bloginfo('template_url'); ?>/assets/img/slider-example.png">
-                                        <time class="swiper-block__time">Дата выхода: <b>11.11.2023</b></time>
-                                        <a href="#" class="swiper-block__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <h4 class="swiper-block__title">TCOM 15.3v</h4>
-                                        <img class="swiper-block__img"
-                                             src="<?php echo bloginfo('template_url'); ?>/assets/img/slider-example.png">
-                                        <time class="swiper-block__time">Дата выхода: <b>11.11.2023</b></time>
-                                        <a href="#" class="swiper-block__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <h4 class="swiper-block__title">TCOM 15.04v</h4>
-                                        <img class="swiper-block__img"
-                                             src="<?php echo bloginfo('template_url'); ?>/assets/img/slider-example.png">
-                                        <time class="swiper-block__time">Дата выхода: <b>11.11.2023</b></time>
-                                        <a href="#" class="swiper-block__link">Подробнее</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="swiper-block">
-                                        <h4 class="swiper-block__title">TCOM 15.05v</h4>
-                                        <img class="swiper-block__img"
-                                             src="<?php echo bloginfo('template_url'); ?>/assets/img/slider-example.png">
-                                        <time class="swiper-block__time">Дата выхода: <b>11.11.2023</b></time>
-                                        <a href="#" class="swiper-block__link">Подробнее</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -312,92 +292,54 @@
                                     </svg>
                                 </div>
                             </a>
-                            <p class="guides-block__subtitle">
+                            <p class="guides-block__subtitle mb-0">
                                 Если у вас возникли проблемы с запуском, подключением или возникли проблемы во время
                                 игры, то прочтите статьи из данного раздела
                             </p>
                             <div class="faq-grid">
                                 <div class="faq-list">
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>      <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>      <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="faq-link">
-                                        <span class="faq-link__text">Как скачать варкрафт 3</span>
-                                        <div class="title-box">
-                                            <svg class="title-box__icon">
-                                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </a>
-
-
+                                    <a href="#" class="faq-list__link">Технические проблемы:</a>
+                                    <?php $args = array(
+                                        'posts_per_page' => 10,
+                                        'category_name' => 'tehnicheskie-problemy, technical-problems'
+                                    );
+                                    $query = new WP_Query($args);
+                                    if ($query->have_posts()) {
+                                        while ($query->have_posts()) {$query->the_post(); ?>
+                                            <a href="<?php the_permalink(); ?>" class="faq-link">
+                                                <span class="faq-link__text"><?php the_title(); ?></span>
+                                                <div class="title-box">
+                                                    <svg class="title-box__icon">
+                                                        <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        <?php }
+                                        wp_reset_postdata();
+                                    } else
+                                        echo '<p class="faq-text">Записи отсутствуют</p>'; ?>
+                                </div>
+                                <div class="faq-list">
+                                    <a href="#" class="faq-list__link">Игровые проблемы:</a>
+                                    <?php $args = array(
+                                        'posts_per_page' => 10,
+                                        'category_name' => 'igrovye-problemy, gaming-problems'
+                                    );
+                                    $query = new WP_Query($args);
+                                    if ($query->have_posts()) {
+                                        while ($query->have_posts()) {$query->the_post(); ?>
+                                            <a href="<?php the_permalink(); ?>" class="faq-link">
+                                                <span class="faq-link__text"><?php the_title(); ?></span>
+                                                <div class="title-box">
+                                                    <svg class="title-box__icon">
+                                                        <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-icon"></use>
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                        <?php }
+                                        wp_reset_postdata();
+                                    } else
+                                        echo '<p class="faq-text">Записи отсутствуют</p>'; ?>
                                 </div>
                             </div>
                         </div>
