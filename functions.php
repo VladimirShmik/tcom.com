@@ -27,8 +27,6 @@ function register_my_menus() {
     );
 };
 // Регистрируем изображения постов
-add_theme_support( 'post-thumbnails' );
-
 
 
 

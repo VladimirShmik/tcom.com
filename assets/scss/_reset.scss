@@ -49,8 +49,8 @@ table {
   margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: var(--c-text-heading);
   line-height: 1.2;
+  color: var(--main-title-color);
 }
 p, time, span, b{
   color: var(--c-text-secondary);
@@ -113,8 +113,6 @@ body{
 }
 .main{
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
 }
 .footer{
   flex: 0;

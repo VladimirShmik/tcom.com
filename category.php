@@ -27,7 +27,7 @@
                         ));
 
                         // Если есть подкатегории, выводим их
-                        if ($subcategories) {
+                        if ($subcategories && is_category()) {
                             echo '<ul>';
                             foreach ($subcategories as $subcategory) {
                                 echo '<li><a class="faq-link" href="' . get_category_link($subcategory->term_id) . '">' . '<span class="faq-link__text">' . $subcategory->name . '</span>' . '</a></li>';
@@ -35,9 +35,10 @@
                             echo '</ul>';
                         }
 
-                        if (is_category(array('gaming-problems', 'technical-problems', 'stickers' ))) {
+                        // Проверяем, является ли текущая страница категорией и выводим записи, если это подкатегория
+                        if (is_category() && $current_category->parent != 0) {
                             $args = array(
-                                'category_name' => 'gaming-problems,technical-problems, stickers',
+                                'cat' => $current_category->term_id,
                                 'posts_per_page' => -1,
                             );
 

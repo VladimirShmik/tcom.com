@@ -139,3 +139,18 @@ const stickyMenu = () => {
 };
 
 window.addEventListener('scroll', stickyMenu);
+
+// Ищем все таблицы в контейнере content-grid
+const tables = document.querySelectorAll('.content-grid > table');
+
+// Проходимся по каждой таблице
+tables.forEach(table => {
+    // Проверяем, есть ли родительский div с классом table-responsive
+    if (!table.closest('.table-responsive')) {
+        // Если нет, оборачиваем таблицу в div с классом table-responsive
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('table-responsive');
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    }
+});

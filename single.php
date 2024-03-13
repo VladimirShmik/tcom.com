@@ -10,7 +10,6 @@
                 <div class="col-12">
                     <!--breadcrumbs-->
                     <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
-                    <div class="simple-block">
                         <!--content-section-->
                         <div class="content-wrapper">
                             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -23,7 +22,6 @@
                             <?php endif; ?>
                             <?php wp_reset_postdata(); ?>
                         </div>
-                    </div>
                 </div>
             </div>
     </main>

@@ -24,9 +24,8 @@
   &__title{
     font-weight: 800;
     font-size: var(--big-text);
-    padding-bottom: 2px;
     color: var(--main-title-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
   }
 }
 .content-description{
@@ -45,4 +44,115 @@
     max-width: 100%;
     font-size: var(--hight-text);
   }
+  .faq-text{
+    padding-left: 0;
+  }
+}
+.content-grid{
+  p{
+    color: var(--main-title-color);
+    font-size: var(--normal-text);
+    line-height: 140%;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+  }
+  ul{
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  ul > li{
+    color: var(--main-title-color);
+    font-size: var(--normal-text);
+    line-height: 140%;
+    letter-spacing: normal;
+  }
+  ol{
+    list-style: normal;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  ol > li{
+    color: var(--main-title-color);
+    font-size: var(--normal-text);
+    line-height: 140%;
+    letter-spacing: normal;
+  }
+  b, strong{
+    font-weight: 700;
+
+  }
+  .aligncenter{
+    margin: 0 auto;
+    @media (max-width: 767px) {
+      width: 100% !important;
+      img{
+        @media (max-width: 767px) {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .table-responsive{
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    max-height: 600px;
+    position: relative;
+  }
+  table{
+    width: 100%;
+    height: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 1rem;
+
+  }
+  th{
+    padding: 1rem;
+    border: 2px solid var(--hover-bg);
+    color: var(--main-title-color);
+    font-size: var(--normal-text);
+    line-height: 140%;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  td{
+    padding: 1rem;
+    border: 2px solid var(--hover-bg);
+    color: var(--main-title-color);
+    font-size: var(--normal-text);
+    line-height: 140%;
+    font-weight: 300;
+    @media (max-width: 767px) {
+      font-size: var(--low-text);
+      padding: 0.5rem;
+    }
+  }
+  thead tr:nth-child(1){
+    background-color: var(--block-bg);
+    position: sticky;
+    top: 0;
+    z-index: 4;
+  }
+  thead tr:nth-child(1) th:nth-child(1){
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background-color: var(--block-bg);
+    width: 180px;
+    text-align: center;
+  }
+  tbody tr td:nth-child(1){
+    background-color: var(--block-bg);
+    position: sticky;
+    left: 0;
+    width: 80px;
+    text-align: center;
+    z-index: 3;
+  }
+}
+.content-wrapper{
+  margin-bottom: 5rem;
 }

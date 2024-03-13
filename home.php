@@ -45,7 +45,7 @@
                             <div class="swiper-wrapper">
                                 <?php $args = array(
                                     'posts_per_page' => 10,
-                                    'category_name' => 'obnovleniya, updates'
+                                    'category_name' => 'updates'
                                 );
                                 $query = new WP_Query($args);
                                 if ($query->have_posts()) {
@@ -301,7 +301,7 @@
                                     <a href="#" class="faq-list__link">Технические проблемы:</a>
                                     <?php $args = array(
                                         'posts_per_page' => 10,
-                                        'category_name' => 'tehnicheskie-problemy, technical-problems'
+                                        'category_name' => 'technical-problems'
                                     );
                                     $query = new WP_Query($args);
                                     if ($query->have_posts()) {
@@ -323,7 +323,7 @@
                                     <a href="#" class="faq-list__link">Игровые проблемы:</a>
                                     <?php $args = array(
                                         'posts_per_page' => 10,
-                                        'category_name' => 'igrovye-problemy, gaming-problems'
+                                        'category_name' => 'gaming-problems'
                                     );
                                     $query = new WP_Query($args);
                                     if ($query->have_posts()) {
