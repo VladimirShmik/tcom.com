@@ -7,7 +7,15 @@
   --low-text: 0.9rem;
   --hight-text: 1.5rem;
   --slider-text: 1.25rem;
-  --mobile-media: (min-width: 320px) and (max-width: 1023px);
+  @media(max-width: 1023px){
+    --main-title: 2.5rem;
+    --normal-text: 1rem;
+    --big-text: 2rem;
+    --average-text: 1.2rem;
+    --low-text: 0.9rem;
+    --hight-text: 1.5rem;
+    --slider-text: 1.25rem;
+  }
 }
 @mixin grid-column{
   display: grid;

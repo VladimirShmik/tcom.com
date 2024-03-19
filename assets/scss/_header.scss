@@ -3,18 +3,25 @@
   background-color: var(--main-bg);
   position: relative;
 }
-
+.site-header{
+  margin-bottom: 2rem;
+}
 .header {
   padding-top: 2rem;
   margin-bottom: 1.5rem;
+  @media(max-width: 1023px) {
+    padding-top: 0;
+
+  }
 }
 
 .header-bg {
-  background-color: var(--block-bg);
-  border: 2px solid var(--hover-bg);
   border-radius: 20px;
   width: 100%;
+  @media(max-width: 1023px) {
+    border-radius: 0;
 
+  }
 }
 .header.sticky {
   position: sticky;
@@ -22,25 +29,25 @@
   padding-top: 0;
   z-index: 9999;
   left: 0;
-  transition: 0.3s ease-in-out all;
+  transition: 0.3s ease all;
 
   .container {
     max-width: 100%;
-    transition: 0.5s ease-in-out all;
+    transition: 0.5s ease all;
   }
 
   .col-12 {
     padding: 0;
-    transition: 0.3s ease-in-out all;
+    transition: 0.3s ease all;
   }
 
   .header-bg {
     border-radius: 0;
-    transition: 0.3s ease-in-out border-radius;
+    transition: 0.3s ease border-radius;
   }
 
   .header-wrapper {
-    transition: 0.3s ease-in-out all;
+    transition: 0.3s ease all;
   }
 }
 
@@ -52,6 +59,10 @@
   width: 100%;
   padding: 1rem 1.5rem;
   transition: 0.3s ease-in-out all;
+  @media(max-width: 1023px) {
+    grid-template-columns: 1fr 1fr;
+
+  }
 }
 
 .header-links {
@@ -60,10 +71,15 @@
   align-items: center;
   grid-gap: 3rem;
   justify-content: start;
+
 }
 
 .header-box {
   @include grid-column;
+  @media(max-width: 1023px) {
+    display: none;
+
+  } 
 }
 
 .box-link {
@@ -82,6 +98,10 @@
   grid-auto-flow: column;
   grid-gap: 2rem;
   align-items: center;
+  @media(max-width: 1023px) {
+    display: none;
+
+  }
 }
 
 .lang-block {
@@ -143,4 +163,5 @@
       transition: 0.3s ease-in-out all;
     }
   }
+
 }

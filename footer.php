@@ -8,25 +8,9 @@
                         <p class="footer-copyright__text">TCOM с 2016 по 2024</p>
                     </div>
                     <div class="footer-nav">
-
-                    </div>
-                    <div class="header-box">
-                        <a href="" class="box-link">
-                            <svg class="box-link__icon">
-                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#discord-icon"></use>
-                            </svg>
-                        </a>
-                        <a href="" class="box-link">
-                            <svg class="box-link__icon">
-                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#vk-icon"></use>
-                            </svg>
-                        </a>
-                        <a href="" class="box-link">
-                            <svg class="box-link__icon">
-                                <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#youtube-icon"></use>
-                            </svg>
-                        </a>
-                    </div>
+                        <?php wp_nav_menu([ 'theme_location'  => 'footer-menu' ]); ?>
+                </div>
+                    <?php get_template_part( 'template-parts/header/header-links' ); ?>
                 </div>
             </div>
         </div>

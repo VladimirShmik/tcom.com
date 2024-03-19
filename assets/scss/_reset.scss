@@ -17,7 +17,7 @@ time, mark, audio, video {
   border: 0;
   font-size: 1rem;
   vertical-align: baseline;
-  font-family: 'Rubik', sans-serif, serif;
+  font-family: 'Rubik', sans-serif;
   transition: 0.3s ease-in-out all;
 }
 /* HTML5 display-role reset for older browsers */
@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--main-title-color);
 }
 p, time, span, b{
-  color: var(--c-text-secondary);
+  color: var(--main-title-color);
   font-size: 1rem;
   line-height: 1.3;
 }

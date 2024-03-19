@@ -20,7 +20,7 @@
                         <?php
                         // Получаем текущую категорию
                         $current_category = get_queried_object();
-
+ 
                         // Проверяем, есть ли у текущей категории подкатегории
                         $subcategories = get_categories(array(
                             'parent' => $current_category->term_id,
@@ -28,11 +28,11 @@
 
                         // Если есть подкатегории, выводим их
                         if ($subcategories && is_category()) {
-                            echo '<ul>';
+                            echo '<div class="faq-list">';
                             foreach ($subcategories as $subcategory) {
-                                echo '<li><a class="faq-link" href="' . get_category_link($subcategory->term_id) . '">' . '<span class="faq-link__text">' . $subcategory->name . '</span>' . '</a></li>';
+                                echo '<a class="faq-link" href="' . get_category_link($subcategory->term_id) . '">' . '<span class="faq-link__text">' . $subcategory->name . '</span>' . '</a>';
                             }
-                            echo '</ul>';
+                            echo '</div>';
                         }
 
                         // Проверяем, является ли текущая страница категорией и выводим записи, если это подкатегория
@@ -51,12 +51,42 @@
                                     </a>
                                 <?php }
                                 wp_reset_postdata();
+                                // Добавляем пагинацию
+                                echo the_posts_pagination( );
                             } else {
                                 echo '<p class="faq-text">Записи отсутствуют</p>';
                             }
                         }
-                        ?>
 
+                        if (is_category('news')) {
+                            $args = array(
+                                'cat' => $current_category->term_id,
+                                'posts_per_page' => 3,
+                            );?>
+                            <div class="news-grid">
+                           <?php
+                            $query = new WP_Query($args);
+                            if ($query->have_posts()) {
+                                while ($query->have_posts()) {
+                                    $query->the_post(); ?>
+                                    <div class="swiper-block">
+                                        <h4 class="swiper-block__title"><?php the_title(); ?></h4>
+                                        <?php
+                                        if(has_post_thumbnail()) {
+                                            the_post_thumbnail();
+                                        } else {
+                                            echo '<img src="' . get_bloginfo("template_url") . '/assets/img/img-guides.png  " />';
+                                        }?>
+                                        <time class="swiper-block__time">Дата выхода: <b><?php the_date(); ?></b></time>
+                                        <a href="<?php the_permalink(); ?>" class="swiper-block__link">Подробнее</a>
+                                    </div>
+                                <?php }
+                                wp_reset_postdata();
+                            } else {
+                                echo '<p class="faq-text">Записи отсутствуют</p>';
+                            }
+                        }?>
+                            </div>
                     </div>
                 </div>
             </div>

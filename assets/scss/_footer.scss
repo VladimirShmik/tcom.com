@@ -1,8 +1,11 @@
 /*footer-styles*/
 .footer{
-  background-color: var(--block-bg);
+  background-color: var(--blue-bg);
   border-top: 2px solid var(--hover-bg);
   width: 100%;
+  .header-logo{
+    display: none;
+  }
 }
 .footer-wrapper{
   display: grid;

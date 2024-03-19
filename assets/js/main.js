@@ -41,38 +41,89 @@
 //         brElement.remove();
 //     });
 // });
-const swiperNews = new Swiper('.swiperNews', {
+new Swiper('.swiperNews', {
     spaceBetween: 20,
     slidesPerView: 4,
     autoplay: {
-        delay: 3000,
+        delay: 4000,
     },
     navigation: {
-        nextEl: '.swiper-button-next .swiper-button-next--news',
-        prevEl: '.swiper-button-prev .swiper-button-next--news',
+        nextEl: '.swiper-button-next--news',
+        prevEl: '.swiper-button-prev--news',
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            slideToClickedSlide: true,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+            slideToClickedSlide: true,
+        },
+        1023: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            slideToClickedSlide: true,
+        }
+    }
 });
-const swiperShop = new Swiper('.swiperShop', {
+ new Swiper('.swiperShop', {
     spaceBetween: 20,
-    slidesPerView: 4,
+    slidesPerView: 'auto',
     autoplay: {
-        delay: 3000,
+        delay: 2500,
     },
     navigation: {
         nextEl: '.swiper-button-next--shop',
-        prevEl: '.swiper-button-next--shop',
+        prevEl: '.swiper-button-prev--shop',
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            slideToClickedSlide: true,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+            slideToClickedSlide: true,
+        },
+        1023: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            slideToClickedSlide: true,
+        }
+    }
 });
-const swiperLore = new Swiper('.swiperLore', {
+new Swiper('.swiperLore', {
     spaceBetween: 20,
-    slidesPerView: 4,
+    slidesPerView: 'auto',
     autoplay: {
-        delay: 3000,
+        delay: 3500,
     },
     navigation: {
-        nextEl: '.swiper-button-next .swiper-button-next--lore',
-        prevEl: '.swiper-button-prev .swiper-button-next--lore',
+        nextEl: '.swiper-button-next--lore',
+        prevEl: '.swiper-button-prev--lore',
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            slideToClickedSlide: true,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+            slideToClickedSlide: true,
+        },
+        1023: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            slideToClickedSlide: true,
+        }
+    }
 });
 //theme-toggle
 function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
@@ -121,24 +172,40 @@ button.addEventListener("click", (event) => {
     currentThemeSetting = newTheme;
 });
 
-//sticky-menu
-const stickyMenu = () => {
-    const menu = document.querySelector(".header");
-    const sticky = menu.offsetTop;
 
-    if (window.pageYOffset >= sticky) {
-        menu.classList.add("sticky");
-    } else {
-        menu.classList.remove("sticky");
-    }
+// // Функция-декоратор для ограничения частоты вызова функции
+// const debounce = (func, delay) => {
+//     let timeoutId;
+//     return (...args) => {
+//         clearTimeout(timeoutId);
+//         timeoutId = setTimeout(() => {
+//             func(...args);
+//         }, delay);
+//     };
+// };
+//
+// // Функция для добавления/удаления класса "sticky" в зависимости от скролла
+// const stickyMenu = () => {
+//     const menu = document.querySelector(".header");
+//     const sticky = menu.offsetTop;
+//
+//     if (window.pageYOffset >= sticky) {
+//         menu.classList.add("sticky");
+//     } else {
+//         menu.classList.remove("sticky");
+//     }
+//
+//     if (window.pageYOffset === 0) {
+//         menu.classList.remove("sticky");
+//     }
+// };
 
-    // Добавляем условие для удаления класса при возвращении на начало страницы
-    if (window.pageYOffset === 0) {
-        menu.classList.remove("sticky");
-    }
-};
+// // Применение debounce к функции stickyMenu с задержкой в 100 миллисекунд
+// const debouncedStickyMenu = debounce(stickyMenu, 100);
+//
+// // Обработчик события прокрутки страницы
+// window.addEventListener('scroll', debouncedStickyMenu);
 
-window.addEventListener('scroll', stickyMenu);
 
 // Ищем все таблицы в контейнере content-grid
 const tables = document.querySelectorAll('.content-grid > table');
