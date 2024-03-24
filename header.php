@@ -10,6 +10,9 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="image/x-icon" href="<?php echo bloginfo('template_url'); ?>/favicon.ico" rel="shortcut icon">
+    <link type="Image/x-icon" href="<?php echo bloginfo('template_url'); ?>/favicon.ico" rel="icon">
+    <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class('dark-theme'); ?> >

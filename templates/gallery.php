@@ -16,14 +16,16 @@
                         <h1 class="content-wrapper__title"><?php the_title(); ?></h1>
                         <div class="production-grid--content">
                             <?php
+                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                             $args = array(
-                                'post_type' => 'attachment',
-                                'post_status' => 'inherit',
-                                'orderby' => 'post_date',
-                                'order' => 'DESC',
-                                'posts_per_page' => -1,
+                                'post_type'      => 'attachment',
+                                'post_status'    => 'inherit',
+                                'orderby'        => 'post_date',
+                                'order'          => 'DESC',
+                                'posts_per_page' => 16,
+                                'paged' => $paged,
                                 'post_mime_type' => 'image',
-                                'tax_query' => array(
+                                'tax_query'      => array(
                                     array(
                                         'taxonomy' => 'attachment_category',
                                         'field'    => 'id',
@@ -33,26 +35,36 @@
                                 ),
                             );
 
-
-                            $recent_images = get_posts($args);
-
-                            if ($recent_images) {
-                                echo '<div class="gallery gallery-grid">';
-                                foreach ($recent_images as $image) {
-                                    $image_url = wp_get_attachment_image_src($image->ID, 'full');
-                                    ?>
-                                    <div class="gallery-item">
-                                        <a class="gallery-link" href="<?php echo $image_url[0]; ?>" data-caption="<?php echo $image->post_title; ?>">
-                                            <img src="<?php echo $image_url[0]; ?>" alt="<?php echo $image->post_title; ?>">
-                                        </a>
-                                    </div>
-                                    <?php
-                                }
-                                echo '</div>';
-                            } else {
-                                echo '<p class="faq-text">Записи отсутствуют</p>';
-                            }
+                            $recent_images_query = new WP_Query($args);
                             ?>
+                            <?php if ($recent_images_query->have_posts()) : ?>
+                                <div class="gallery gallery-grid">
+                                    <?php while ($recent_images_query->have_posts()) :
+                                        $recent_images_query->the_post();
+                                        $image_url = wp_get_attachment_image_src(get_the_ID(), 'full');
+                                        ?>
+                                        <div class="gallery-item">
+                                            <a class="gallery-link" href="<?php echo esc_url($image_url[0]); ?>" data-caption="<?php echo esc_attr(get_the_title()); ?>">
+                                                <img src="<?php echo esc_url($image_url[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+                                            </a>
+                                        </div>
+                                    <?php endwhile; ?>
+                                </div><!-- .gallery.gallery-grid -->
+                                <div class="pagination">
+                                    <?php echo paginate_links(array(
+                                        'total' => $recent_images_query->max_num_pages,
+                                        'prev_text' => __('<'),
+                                        'next_text' => __('>'),
+                                        'mid_size' => 1,
+                                    ));?>
+                                </div>
+                                <?php   wp_reset_postdata();
+                            else :
+                                echo '<p class="faq-text">Записи отсутствуют</p>';
+                            endif;
+                            ?>
+
+
                         </div>
                     </div>
                 </div>

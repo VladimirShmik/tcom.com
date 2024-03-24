@@ -51,8 +51,6 @@
                                     </a>
                                 <?php }
                                 wp_reset_postdata();
-                                // Добавляем пагинацию
-                                echo the_posts_pagination( );
                             } else {
                                 echo '<p class="faq-text">Записи отсутствуют</p>';
                             }

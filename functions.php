@@ -22,14 +22,12 @@ function register_my_menus() {
     register_nav_menus(
         array(
             'desktop-menu' => __( 'Главное меню' ),
-            'mobile-menu' => __( 'Мобильное меню' ),
             'footer-menu' => __( 'Нижнее меню' ),
         )
     );
 };
 // Регистрируем изображения постов
 add_theme_support( 'post-thumbnails');
-// Создание кастомного типа записи
 // Создание кастомного типа записи
 function shop_post_type() {
     $labels = array(
@@ -84,19 +82,62 @@ function shop_post_type() {
 }
 add_action( 'init', 'shop_post_type', 0 );
 
-// Регистрация виджета консоли
-add_action( 'wp_dashboard_setup', 'add_dashboard_widgets' );
-
-// Используется в хуке
-function add_dashboard_widgets() {
-    wp_add_dashboard_widget( 'my_dashboard_widget', 'Метабокс в консоли', 'my_dashboard_widget_function' );
+function video_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Видеозаписи', 'Post Type General Name', 'text_domain' ),
+        'singular_name'         => _x( 'Видеозапись', 'Post Type Singular Name', 'text_domain' ),
+        'menu_name'             => __( 'Видео', 'text_domain' ),
+        'name_admin_bar'        => __( 'Видеозапись', 'text_domain' ),
+        'archives'              => __( 'Архивы Видеозаписей', 'text_domain' ),
+        'attributes'            => __( 'Атрибуты Видеозаписей', 'text_domain' ),
+        'parent_item_colon'     => __( 'Родительская Видеозапись:', 'text_domain' ),
+        'all_items'             => __( 'Все Видеозаписи', 'text_domain' ),
+        'add_new_item'          => __( 'Добавить новую Видеозапись', 'text_domain' ),
+        'add_new'               => __( 'Добавить новую', 'text_domain' ),
+        'new_item'              => __( 'Новая Видеозапись', 'text_domain' ),
+        'edit_item'             => __( 'Редактировать Видеозапись', 'text_domain' ),
+        'update_item'           => __( 'Обновить Видеозапись', 'text_domain' ),
+        'view_item'             => __( 'Просмотреть Видеозапись', 'text_domain' ),
+        'view_items'            => __( 'Просмотреть Видеозаписи', 'text_domain' ),
+        'search_items'          => __( 'Поиск Видеозаписей', 'text_domain' ),
+        'not_found'             => __( 'Видеозаписи не найдены', 'text_domain' ),
+        'not_found_in_trash'    => __( 'Видеозаписи не найдены в корзине', 'text_domain' ),
+        'featured_image'        => __( 'Изображение Видеозаписи', 'text_domain' ),
+        'set_featured_image'    => __( 'Установить изображение Видеозаписи', 'text_domain' ),
+        'remove_featured_image' => __( 'Удалить изображение Видеозаписи', 'text_domain' ),
+        'use_featured_image'    => __( 'Использовать как изображение Видеозаписи', 'text_domain' ),
+        'insert_into_item'      => __( 'Вставить в Видеозапись', 'text_domain' ),
+        'uploaded_to_this_item' => __( 'Загружено для этой Видеозаписи', 'text_domain' ),
+        'items_list'            => __( 'Список Видеозаписей', 'text_domain' ),
+        'items_list_navigation' => __( 'Навигация по списку Видеозаписей', 'text_domain' ),
+        'filter_items_list'     => __( 'Фильтр списка Видеозаписей', 'text_domain' ),
+    );
+    $args = array(
+        'label'                 => __( 'Видеозаписи', 'text_domain' ),
+        'description'           => __( 'Описание Видеозаписей', 'text_domain' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title','editor', 'custom-fields'),
+        'taxonomies'            => array(),
+        'hierarchical'          => false,
+        'public'                => false,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+    );
+    register_post_type( 'video_post_type', $args );
 }
+add_action( 'init', 'video_post_type', 0 );
 
-// Выводит контент
-function my_dashboard_widget_function( $post, $callback_args ) {
-    echo 'Всем привет! Это мой первый виджет!';
-}
-require_once get_template_directory() . '/function-templates/kama-pagination.php';
+require_once get_template_directory() . '/function-templates/bootstrap-navwalker.php';
+
+
 
 
 

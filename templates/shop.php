@@ -23,6 +23,7 @@
                             'post_type' => 'shop_post_type',
                             'posts_per_page' => 12,
                             'paged' => $paged,
+
                         );
 
                         $query = new WP_Query($args);
@@ -55,10 +56,15 @@
                             <?php
                             endwhile;?>
                             </div>
+                        <div class="pagination">
                             <?php echo paginate_links(array(
-                                'total' => $query->max_num_pages
-                            ));
-                            wp_reset_postdata();
+                                'total' => $query->max_num_pages,
+                                'prev_text' => __('<'),
+                                'next_text' => __('>'),
+                                'mid_size' => 1,
+                            ));?>
+                        </div>
+                         <?php   wp_reset_postdata();
                         } else {
                             echo '<p class="faq-text">Записи отсутствуют</p>';
                         }

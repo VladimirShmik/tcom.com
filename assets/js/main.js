@@ -22,25 +22,6 @@
 //         closeMenuAndReset(); // Закрываем меню и снимаем анимацию
 //     }
 // });
-// const swiper = new Swiper('.swiperMain', {
-//     autoplay: {
-//         delay: 12000,
-//     },
-//     spaceBetween: 0,
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
-// });
-// // Найти все элементы с классом "form-grid"
-// let formGridElements = document.querySelectorAll('.form-grid');
-//
-// formGridElements.forEach(function(formGridElement) {
-//     let brElements = formGridElement.querySelectorAll('br');
-//     brElements.forEach(function(brElement) {
-//         brElement.remove();
-//     });
-// });
 new Swiper('.swiperNews', {
     spaceBetween: 20,
     slidesPerView: 4,
@@ -94,7 +75,7 @@ new Swiper('.swiperNews', {
             slidesPerView: 4,
             spaceBetween: 20,
             slideToClickedSlide: true,
-        }
+        },
     }
 });
 new Swiper('.swiperLore', {
@@ -134,77 +115,47 @@ function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark })
     if (systemSettingDark.matches) {
         return "dark";
     }
-    return "dark";
+    return "light"; // Возвращаем значение "light" по умолчанию, если ничего не найдено
 }
 
+function updateButton({ buttonEls, currentTheme }) {
+    buttonEls.forEach(buttonEl => {
+        const [lightBtn, darkBtn] = buttonEl.querySelectorAll('.theme-button__btn');
 
-function updateButton({ buttonEl, isDark }) {
-    const [lightBtn, darkBtn] = buttonEl.querySelectorAll('.theme-button__btn');
-
-    if (isDark) {
-        darkBtn.classList.add('theme-button__btn--selected');
-        lightBtn.classList.remove('theme-button__btn--selected');
-    } else {
-        lightBtn.classList.add('theme-button__btn--selected');
-        darkBtn.classList.remove('theme-button__btn--selected');
-    }
+        if (currentTheme === "dark") {
+            darkBtn.classList.add('theme-button__btn--selected');
+            lightBtn.classList.remove('theme-button__btn--selected');
+        } else {
+            lightBtn.classList.add('theme-button__btn--selected');
+            darkBtn.classList.remove('theme-button__btn--selected');
+        }
+    });
 }
 
 function updateThemeOnHtmlEl({ theme }) {
     document.querySelector("html").setAttribute("data-theme", theme);
 }
 
-const button = document.querySelector(".theme-button");
+const buttons = document.querySelectorAll(".theme-button");
 const localStorageTheme = localStorage.getItem("theme");
 const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
 
 let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
-updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
+updateButton({ buttonEls: buttons, currentTheme: currentThemeSetting });
 updateThemeOnHtmlEl({ theme: currentThemeSetting });
 
-button.addEventListener("click", (event) => {
-    const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+buttons.forEach(button => {
+    button.addEventListener("click", (event) => {
+        const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
 
-    localStorage.setItem("theme", newTheme);
-    updateButton({ buttonEl: button, isDark: newTheme === "dark" });
-    updateThemeOnHtmlEl({ theme: newTheme });
+        localStorage.setItem("theme", newTheme);
+        updateButton({ buttonEls: buttons, currentTheme: newTheme });
+        updateThemeOnHtmlEl({ theme: newTheme });
 
-    currentThemeSetting = newTheme;
+        currentThemeSetting = newTheme;
+    });
 });
 
-
-// // Функция-декоратор для ограничения частоты вызова функции
-// const debounce = (func, delay) => {
-//     let timeoutId;
-//     return (...args) => {
-//         clearTimeout(timeoutId);
-//         timeoutId = setTimeout(() => {
-//             func(...args);
-//         }, delay);
-//     };
-// };
-//
-// // Функция для добавления/удаления класса "sticky" в зависимости от скролла
-// const stickyMenu = () => {
-//     const menu = document.querySelector(".header");
-//     const sticky = menu.offsetTop;
-//
-//     if (window.pageYOffset >= sticky) {
-//         menu.classList.add("sticky");
-//     } else {
-//         menu.classList.remove("sticky");
-//     }
-//
-//     if (window.pageYOffset === 0) {
-//         menu.classList.remove("sticky");
-//     }
-// };
-
-// // Применение debounce к функции stickyMenu с задержкой в 100 миллисекунд
-// const debouncedStickyMenu = debounce(stickyMenu, 100);
-//
-// // Обработчик события прокрутки страницы
-// window.addEventListener('scroll', debouncedStickyMenu);
 
 
 // Ищем все таблицы в контейнере content-grid
@@ -221,3 +172,50 @@ tables.forEach(table => {
         wrapper.appendChild(table);
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedBlocks = document.querySelectorAll('.guides-list .guides-link');
+
+    const checkScroll = () => {
+        const scrollPosition = window.innerHeight;
+
+        animatedBlocks.forEach((block, index) => {
+            const blockPosition = block.getBoundingClientRect().top;
+            const transitionDelay = (index + 1) * 0.05; // Увеличиваем задержку анимации для каждого последующего элемента
+
+            if (blockPosition < scrollPosition) {
+                block.style.transition = `0.1s ease-in-out ${transitionDelay}s all`; // Применяем задержку анимации
+                block.classList.add('guides-link--animate');
+            } else {
+                block.style.transition = ''; // Сбрасываем задержку анимации
+                block.classList.remove('guides-link--animate');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkScroll);
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedBlocks = document.querySelectorAll('.gallery-grid .gallery-item');
+
+    const checkScroll = () => {
+        const scrollPosition = window.innerHeight;
+
+        animatedBlocks.forEach((block, index) => {
+            const blockPosition = block.getBoundingClientRect().top;
+            const transitionDelay = (index + 1) * 0.05; // Увеличиваем задержку анимации для каждого последующего элемента
+
+            if (blockPosition < scrollPosition) {
+                block.style.transition = `0.1s ease-in-out ${transitionDelay}s all`; // Применяем задержку анимации
+                block.classList.add('gallery-item--animate');
+            } else {
+                block.style.transition = ''; // Сбрасываем задержку анимации
+                block.classList.remove('gallery-item--animate');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkScroll);
+});
+
+

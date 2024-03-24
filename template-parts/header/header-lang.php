@@ -10,8 +10,12 @@
         <?php echo do_shortcode('[weglot_switcher]'); ?>
     </div>
     <button type="button" class="theme-button">
-        <span class="theme-button__btn">Light</span>
-        <span class="theme-button__btn">Black</span>
+        <span class="theme-button__btn">       <svg class="theme-button__icon">
+                                            <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#sun-icon"></use>
+                                        </svg></span>
+        <span class="theme-button__btn">       <svg class="theme-button__icon">
+                                            <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#moon-icon"></use>
+                                        </svg></span>
     </button>
 </div>
 
