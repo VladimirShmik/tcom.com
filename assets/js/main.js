@@ -174,7 +174,7 @@ tables.forEach(table => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const animatedBlocks = document.querySelectorAll('.guides-list .guides-link');
+    const animatedBlocks = document.querySelectorAll('.guidesAnimate .guides-link');
 
     const checkScroll = () => {
         const scrollPosition = window.innerHeight;
