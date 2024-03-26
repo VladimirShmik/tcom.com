@@ -118,7 +118,7 @@
                                     Разгадывай загадки и заводи питомцев. Познай силу и стань великим героем
                                     Мелерота!
                                 </p>
-                                <div class="guides-list">
+                                <div class="guides-list ">
                                     <a href="<?php echo bloginfo('url'); ?>/404" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/items-icon.png"
                                              alt="Предметы"

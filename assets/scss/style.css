@@ -147,26 +147,22 @@ a:focus, a:hover, a:active {
   box-sizing: border-box;
 }
 
-body {
+.site-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
-}
-
-.main {
-  min-height: 100vh;
-}
-
-.footer {
-  flex: 0;
-}
-
-/*header-styles*/
-.site-wrapper {
   background-color: var(--main-bg);
 }
 
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+/*header-styles*/
 .main-bg {
   position: relative;
 }
@@ -924,7 +920,7 @@ body {
 .guides-list {
   display: grid;
   padding: 0 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   grid-auto-rows: 200px;
   grid-gap: 1rem;
   align-items: center;
@@ -991,6 +987,10 @@ body {
   }
 }
 .guides-link__img {
+  width: 48px;
+  height: 48px;
+}
+.guides-link img {
   width: 48px;
   height: 48px;
 }

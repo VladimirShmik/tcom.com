@@ -117,18 +117,15 @@ a{
 *:before {
   box-sizing: border-box;
 }
-body{
+.site-wrapper{
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
-}
-.header{
-
+  background-color: var(--main-bg);
 }
 .main{
-  min-height: 100vh;
+  flex: 1 0 auto;
 }
 .footer{
-  flex: 0;
+  flex: 0 0 auto;
 }
