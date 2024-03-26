@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*variables-styles*/
 :root {
   --main-title: 4rem;
@@ -147,19 +148,17 @@ a:focus, a:hover, a:active {
   box-sizing: border-box;
 }
 
+.body {
+  margin: 0;
+  display: grid;
+  min-height: 100vh; /* Установим минимальную высоту для того, чтобы футер всегда прижимался к низу страницы */
+  grid-template-rows: auto 1fr auto; /* Первая строка - высота шапки, вторая строка - основное содержимое, третья строка - высота футера */
+}
+
 .site-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr; /* Внутри обертки сайта располагаем шапку и основное содержимое */
   background-color: var(--main-bg);
-}
-
-.main {
-  flex: 1 0 auto;
-}
-
-.footer {
-  flex: 0 0 auto;
 }
 
 /*header-styles*/

@@ -1,3 +1,4 @@
+</div>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -38,7 +39,6 @@
 
 </footer>
 <div class="menu-backdrop"></div>
-</div>
 </body>
 </html>
 <?php wp_footer(); ?>
