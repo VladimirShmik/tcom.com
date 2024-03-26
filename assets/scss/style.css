@@ -1095,6 +1095,12 @@ body {
   padding-left: 0;
   border-bottom: 1px solid var(--border-color);
 }
+.faq-list__link:hover, .faq-list__link:focus, .faq-list__link:active {
+  filter: opacity(70%);
+}
+.faq-list .faq-link:hover, .faq-list .faq-link:focus, .faq-list .faq-link:active {
+  filter: opacity(70%);
+}
 
 .faq-link {
   display: grid;
@@ -1504,6 +1510,10 @@ body {
 }
 .pagination .page-numbers.current {
   color: var(--text-color);
+}
+
+.custom-accordion .accordion-button {
+  background-color: var(--header-bg);
 }
 
 /*# sourceMappingURL=style.css.map */

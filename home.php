@@ -102,7 +102,7 @@
                     <div class="col-12">
                         <div class="guides-grid">
                             <!--guides-block-->
-                            <div class="guides-block">
+                            <div class="guides-block">  
                                 <div class="title-block">
                                     <h2 class="title-block__title">Гайды</h2>
                                     <a href="<?php echo bloginfo('url'); ?>/category/guides/" class="title-box">
@@ -119,19 +119,19 @@
                                     Мелерота!
                                 </p>
                                 <div class="guides-list">
-                                    <a href="<?php echo bloginfo('template_url'); ?>/404" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/404" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/items-icon.png"
                                              alt="Предметы"
                                              class="guides-link__img">
                                         <span class="guides-link__text">Предметы</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('template_url'); ?>/guides/quests/" class="guides-link">
+                                    <a href="https://tcom-orpg.com/guides/quests/" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/quests-icon.png"
                                              alt="Квесты"
                                              class="guides-link__img">
                                         <span class="guides-link__text">Квесты</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('template_url'); ?>/404" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/404" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/boss-icon.png"
                                              alt="Боссы"
                                              class="guides-link__img">
@@ -152,7 +152,7 @@
                                              class="guides-link__img">
                                         <span class="guides-link__text">Трофеи</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/blessings/"
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/blessing/"
                                        class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/blessings-icon.png"
                                              alt="Благославления"
@@ -180,13 +180,13 @@
                                              class="guides-link__img">
                                         <span class="guides-link__text">Профессии</span>
                                     </a>
-                                    <a href="#" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/pendants/" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/pendants-icon.png"
                                              alt="Кулоны"
                                              class="guides-link__img">
                                         <span class="guides-link__text">Кулоны</span>
                                     </a>
-                                    <a href="#" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/potions/" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/potions-icon.png"
                                              alt="Зелья"
                                              class="guides-link__img">
@@ -321,7 +321,7 @@
                             </p>
                             <div class="faq-grid">
                                 <div class="faq-list">
-                                    <a href="#" class="faq-list__link">Технические проблемы:</a>
+                                    <a href="<?php echo bloginfo('url'); ?>/faq/technical-problems/" class="faq-list__link">Технические проблемы:</a>
                                     <?php $args = array(
                                         'posts_per_page' => 10,
                                         'category_name' => 'technical-problems'
@@ -344,7 +344,7 @@
                                         echo '<p class="faq-text pt-3">Записи отсутствуют</p>'; ?>
                                 </div>
                                 <div class="faq-list">
-                                    <a href="#" class="faq-list__link">Игровые проблемы:</a>
+                                    <a href="<?php echo bloginfo('url'); ?>/faq/gaming-problems/" class="faq-list__link">Игровые проблемы:</a>
                                     <?php $args = array(
                                         'posts_per_page' => 10,
                                         'category_name' => 'gaming-problems'

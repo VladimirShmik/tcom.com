@@ -1,2 +1,0 @@
-# tcom.com
-# tcom.com
