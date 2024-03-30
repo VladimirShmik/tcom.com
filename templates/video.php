@@ -14,14 +14,15 @@
                     </div>
                     <!--content-section-->
                     <div class="content-wrapper">
-                        <h1 class="content-wrapper__title"><?php the_title(); ?></h1>
-                        <div class="production-grid--content">
+                        <article <?php post_class('production-grid--content'); ?>>
+                            <h1 class="content-wrapper__title"><?php the_title(); ?></h1>
                             <div class="news-grid">
                                 <?php
                                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                                $posts_per_page = ( wp_is_mobile() ) ? 4 : 12;
                                 $args = array(
                                     'post_type' => 'video_post_type',
-                                    'posts_per_page' => 12,
+                                    'posts_per_page' => $posts_per_page,
                                     'paged' => $paged,
                                 );
 
@@ -35,7 +36,8 @@
                                         <?php the_content(); ?>
                                     </div>
                                 <?php
-                                endwhile;?>
+                                endwhile;
+                                ?>
                             </div>
                             <div class="pagination">
                                 <?php echo paginate_links(array(
@@ -45,13 +47,14 @@
                                     'mid_size' => 1,
                                 ));?>
                             </div>
-                            <?php   wp_reset_postdata();
+                            <?php
+                            wp_reset_postdata();
                             } else {
                                 echo '<p class="faq-text">Записи отсутствуют</p>';
                             }
                             ?>
 
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>

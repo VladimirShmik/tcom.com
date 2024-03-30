@@ -1,27 +1,3 @@
-// //mobile-burger
-// const burgerIcon = document.querySelector('.burger-icon');
-// const menu = document.querySelector('.menu-wrap');
-// const menuBackdrop =document.querySelector('.menu-backdrop');
-// const body =document.querySelector('body');
-//
-// burgerIcon.addEventListener('click', () => {
-//     burgerIcon.classList.toggle('animate');
-//     menu.classList.toggle('show-menu');
-//     body.classList.toggle('body-overflow');
-//     menuBackdrop.classList.toggle('menu-backdrop--show')
-// });
-// function closeMenuAndReset() {
-//     burgerIcon.classList.remove('animate');
-//     menu.classList.remove('show-menu');
-//     body.classList.remove('body-overflow');
-//     menuBackdrop.classList.remove('menu-backdrop--show');
-// }
-// document.addEventListener('click', (event) => {
-//     // Проверяем, был ли клик вне элемента .mobile-menu и бургер-иконки
-//     if (!menu.contains(event.target) && !burgerIcon.contains(event.target)) {
-//         closeMenuAndReset(); // Закрываем меню и снимаем анимацию
-//     }
-// });
 new Swiper('.swiperNews', {
     spaceBetween: 20,
     slidesPerView: 4,
@@ -35,7 +11,7 @@ new Swiper('.swiperNews', {
     breakpoints: {
         320: {
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 10,
             slideToClickedSlide: true,
         },
         768: {
@@ -50,7 +26,7 @@ new Swiper('.swiperNews', {
         }
     }
 });
- new Swiper('.swiperShop', {
+new Swiper('.swiperShop', {
     spaceBetween: 20,
     slidesPerView: 'auto',
     autoplay: {
@@ -63,7 +39,7 @@ new Swiper('.swiperNews', {
     breakpoints: {
         320: {
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 10,
             slideToClickedSlide: true,
         },
         768: {
@@ -91,7 +67,7 @@ new Swiper('.swiperLore', {
     breakpoints: {
         320: {
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 10,
             slideToClickedSlide: true,
         },
         768: {
@@ -196,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('scroll', checkScroll);
 });
 document.addEventListener("DOMContentLoaded", () => {
-    const animatedBlocks = document.querySelectorAll('.gallery-grid .gallery-item');
+    const animatedBlocks = document.querySelectorAll('.galleryAnimate .gallery-item');
 
     const checkScroll = () => {
         const scrollPosition = window.innerHeight;
@@ -217,5 +193,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener('scroll', checkScroll);
 });
+
+const burgerIcon = document.querySelector('.burger-icon');
+const menu = document.querySelector('.mobile-wrap');
+const menuBackdrop = document.querySelector('.menu-backdrop');
+const body = document.querySelector('body');
+
+burgerIcon.addEventListener('click', () => {
+    burgerIcon.classList.toggle('animate');
+    menu.classList.toggle('show-menu');
+    body.classList.toggle('body-overflow');
+    menuBackdrop.classList.toggle('menu-backdrop--show')
+});
+document.querySelectorAll('.lyte-wrapper').forEach(element => {
+    element.style.margin = '0';
+});
+
+
 
 

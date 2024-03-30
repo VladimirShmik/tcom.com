@@ -1,73 +1,107 @@
 /*content-page*/
-.rank-math-breadcrumb{
+.rank-math-breadcrumb {
   background-color: var(--block-bg);
   border: 2px solid var(--border-color);
   border-radius: 1rem;
   width: fit-content;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
-  @media(max-width: 1023px){
+  @media(max-width: 1023px) {
     width: 100%;
   }
-  a{
+
+  a {
     color: var(--title-color);
     font-size: 1rem;
     font-weight: 600;
   }
-  .separator{
+
+  .separator {
     color: var(--text-color);
     font-size: 1rem;
   }
-  .last{
+
+  .last {
     color: var(--text-color);
     font-size: 1rem;
   }
 }
-.content-wrapper{
-  &__title{
+
+.content-wrapper {
+  &__title {
     font-weight: 600;
     font-size: var(--big-text);
     color: var(--title-color);
     margin-bottom: 1.5rem;
   }
 }
-.content-description{
+
+.content-description {
   margin-bottom: 1.5rem;
-  p{
+
+  p {
     font-weight: 600;
     font-size: var(--average-text);
     color: var(--text-color);
   }
 }
-.production-grid--content{
 
-  .faq-link{
-    padding-left: 0;
-    &:first-child{
-      padding-top: 0;
-    }
+.production-grid--content {
+  .faq-list--sub {
+    .faq-link {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      align-items: center;
+      grid-gap: 0.5rem;
+      padding-left: 0;
 
-    &:focus, &:hover, &:active {
-      .faq-link__text{
-        color: var(--title-color);
-        transition: 0.3s ease-in-out all;
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:focus, &:hover, &:active {
+        .faq-link__text {
+          color: var(--title-color);
+          transition: 0.3s ease-in-out all;
+        }
+
+        .faq-link__number {
+          color: var(--title-color);
+          transition: 0.3s ease-in-out all;
+        }
       }
     }
+
+    .faq-link__text {
+      max-width: 100%;
+      font-size: var(--hight-text);
+      color: var(--text-color);
+      transition: 0.3s ease-in-out all;
+    }
+
+    .faq-link__number {
+      font-size: var(--hight-text);
+      color: var(--text-color);
+      line-height: 1;
+      transition: 0.3s ease-in-out all;
+    }
   }
-  .faq-link__text{
-    max-width: 100%;
-    font-size: var(--hight-text);
-    color: var(--text-color);
-  }
-  .faq-text{
+
+  .faq-text {
     padding-left: 0;
   }
-  .news-grid{
+
+  .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 1rem;
+
+    .swiper-block img {
+      object-fit: fill;
+    }
   }
-  .gallery-grid{
+
+  .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: center;
@@ -79,10 +113,12 @@
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 
     }
-    .gallery-item{
+
+    .gallery-item {
       height: 100%;
       width: 100%;
     }
+
     .gallery-item:nth-child(1) {
       grid-column: 1;
       grid-row: 1;
@@ -96,10 +132,11 @@
 }
 
 .content-grid {
-  hr{
+  hr {
     border-top: 1px solid var(--border-color);
     opacity: 1;
   }
+
   p {
     color: var(--text-color);
     font-size: var(--normal-text);
@@ -131,9 +168,11 @@
     line-height: 140%;
     letter-spacing: normal;
   }
-  li{
+
+  li {
     color: var(--text-color);
   }
+
   b, strong {
     font-weight: 700;
     color: var(--subtitle-color);
@@ -229,30 +268,36 @@
     }
   }
 }
-.content-wrapper{
+
+.content-wrapper {
   margin-bottom: 5rem;
 }
-.wp-caption > p{
+
+.wp-caption > p {
   font-weight: 500;
   color: var(--title-color);
 }
-.pagination{
+
+.pagination {
   margin: 1rem 0;
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
   grid-gap: 0.5rem;
-  @media(max-width: 1023px){
+  @media(max-width: 1023px) {
     justify-content: center;
   }
-  .prev{
+
+  .prev {
     color: var(--title-color);
 
   }
-  .next{
+
+  .next {
     color: var(--title-color);
   }
-  .page-numbers{
+
+  .page-numbers {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -262,18 +307,59 @@
     transition: 0.3s ease-in-out all;
     background-color: var(--button-bg);
     @include hover-effect;
-    border:  1px solid var(--border-color);
-    &.dots{
+    border: 1px solid var(--border-color);
+
+    &.dots {
 
     }
-    &.current{
+
+    &.current {
       color: var(--text-color);
     }
 
   }
 }
-.custom-accordion{
+
+.accordionShop{
+  margin-bottom: 2rem;
   .accordion-button{
-    background-color: var(--header-bg);
+    background-color: var(--header-bg) ;
+    color: var(--title-color);
+    font-size: var(--average-text);
+    &:focus, &:active, &:hover{
+      box-shadow: none;
+    }
+  }
+  .accordion-item{
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    background-color: var(--header-bg) ;
+  }
+  .accordion-body{
+    background-color: var(--main-bg);
+  }
+
+  ol {
+    list-style: normal;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  ol > li {
+    font-size: var(--normal-text);
+    line-height: 140%;
+    letter-spacing: normal;
+  }
+
+  li {
+    color: var(--text-color);
+  }
+
+  b, strong {
+    font-weight: 700;
+    color: var(--subtitle-color);
+  }
+  .accordion-button:not(.collapsed){
+    box-shadow: none!important;
   }
 }

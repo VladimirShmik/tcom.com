@@ -12,17 +12,21 @@
                 <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                 <!--content-section-->
                 <div class="content-wrapper">
-                    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                        <h2 class="content-wrapper__title"><?php the_title(''); ?></h2>
-                        <div class="content-grid">
-                            <?php the_content(''); ?>
-                        </div>
-                    <?php endwhile; else: ?>
-                        <p><?php _e('There will be a lot of interesting things here soon, but for now, start browsing from the main page...'); ?></p>
-                    <?php endif; ?>
-                    <?php wp_reset_postdata(); ?>
+                    <article <?php post_class('production-grid--content'); ?>>
+                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                            <h1 class="content-wrapper__title"><?php the_title(); ?></h1>
+                            <div class="content-grid">
+                                <?php the_content(''); ?>
+                            </div>
+                        <?php endwhile; else: ?>
+                            <?php _e('<br><br>Скоро здесь будет много интересного, а пока начните просмотр с главной страницы...'); ?>
+                            <br>
+                        <?php endif; ?><br>
+                        <?php wp_reset_postdata(); ?>
+                    </article>
                 </div>
             </div>
         </div>
+    </div>
 </main>
 <?php get_footer(); ?>

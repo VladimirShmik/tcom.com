@@ -8,6 +8,7 @@
 <div class="header-links">
     <a href="/" class="header-logo">
         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/logo.png" alt="logo">
+        <p class="header-copyright__text">TCOM</p>
     </a>
     <div class="header-box">
         <a href="https://discord.gg/wByBUPZuHP" class="box-link" target="_blank">

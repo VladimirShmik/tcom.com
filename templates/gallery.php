@@ -13,16 +13,17 @@
                         <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                     </div>
                     <div class="content-wrapper">
+                        <article <?php post_class('production-grid--content'); ?>>
                         <h1 class="content-wrapper__title"><?php the_title(); ?></h1>
-                        <div class="production-grid--content">
                             <?php
                             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                            $posts_per_page = ( wp_is_mobile() ) ? 4 : 16;
                             $args = array(
                                 'post_type'      => 'attachment',
                                 'post_status'    => 'inherit',
                                 'orderby'        => 'post_date',
                                 'order'          => 'DESC',
-                                'posts_per_page' => 16,
+                                'posts_per_page' => $posts_per_page,
                                 'paged' => $paged,
                                 'post_mime_type' => 'image',
                                 'tax_query'      => array(
@@ -44,7 +45,7 @@
                                         $image_url = wp_get_attachment_image_src(get_the_ID(), 'full');
                                         ?>
                                         <div class="gallery-item">
-                                            <a class="gallery-link" href="<?php echo esc_url($image_url[0]); ?>" data-caption="<?php echo esc_attr(get_the_title()); ?>">
+                                            <a class="gallery-link gallery-link--crop" href="<?php echo esc_url($image_url[0]); ?>" data-caption="<?php echo esc_attr(get_the_title()); ?>">
                                                 <img src="<?php echo esc_url($image_url[0]); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
                                             </a>
                                         </div>
@@ -63,9 +64,7 @@
                                 echo '<p class="faq-text">Записи отсутствуют</p>';
                             endif;
                             ?>
-
-
-                        </div>
+                        </article>
                     </div>
                 </div>
                 </div>

@@ -23,6 +23,7 @@ function register_my_menus() {
         array(
             'desktop-menu' => __( 'Главное меню' ),
             'footer-menu' => __( 'Нижнее меню' ),
+            'mobile-menu' => __( 'Мобильное меню' ),
         )
     );
 };
@@ -135,8 +136,25 @@ function video_post_type() {
 }
 add_action( 'init', 'video_post_type', 0 );
 
+function remove_menu_item_and_separator() {
+    // Замените 'edit-comments.php' на нужный пункт меню
+    remove_menu_page('edit-comments.php');
+    // Удаляем сепаратор
+    global $menu;
+    $remove_menu = 'edit-comments.php';
+    foreach ($menu as $key => $item) {
+        if ($remove_menu == $item[2]) {
+            unset($menu[$key + 1]);
+            break;
+        }
+    }
+}
+add_action('admin_menu', 'remove_menu_item_and_separator');
+
 require_once get_template_directory() . '/function-templates/bootstrap-navwalker.php';
 
+add_filter( "rank_math/opengraph/twitter/twitter_creator", '__return_false');
+add_filter( "rank_math/opengraph/twitter/twitter_site", '__return_false');
 
 
 

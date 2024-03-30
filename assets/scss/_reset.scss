@@ -117,18 +117,14 @@ a{
 *:before {
   box-sizing: border-box;
 }
-.body{
-  margin: 0;
-  display: grid;
-  min-height: 100vh; /* Установим минимальную высоту для того, чтобы футер всегда прижимался к низу страницы */
-  grid-template-rows: auto 1fr auto; /* Первая строка - высота шапки, вторая строка - основное содержимое, третья строка - высота футера */
-
+body{
+  background-color: var(--main-bg);
 }
 .site-wrapper{
+  min-height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr; /* Внутри обертки сайта располагаем шапку и основное содержимое */
-
-  background-color: var(--main-bg);
+  grid-template-rows:auto 1fr auto ;
+  grid-template-columns: 100%;
 }
 .main{
 }

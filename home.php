@@ -13,83 +13,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="main-slider">
-                            <?php echo do_shortcode('[slide-anything id="64"]'); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--скачка карты с диса-->
-<!--        <section class="map-section">-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-12">-->
-<!--                        <div class="map-wrapper">-->
-<!--                            <div class="map-block">-->
-<!--                                -->
-<!--                            </div>-->
-<!--                            <div class="map-qr">-->
-<!---->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-        <!--news-section-->
-        <section class="news-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="heading-container">
-                            <div class="title-block">
-                                <h2 class="title-block__title">Обновления</h2>
-                                <a  href="<?php echo bloginfo('url'); ?>/category/news/" class="title-box">
-                                    <span class="title-box__title">Все</span>
-                                    <svg class="title-box__icon">
-                                        <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-title-icon"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div class="swiper-arrows">
-                                <div class="swiper-button-prev swiper-button-prev--news"></div>
-                                <div class="swiper-button-next swiper-button-next--news"></div>
-                            </div>
-                        </div>
-                        <!-- Slider main container -->
-                        <div class="swiper swiperNews">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <?php $args = array(
-                                    'posts_per_page' => 10,
-                                    'category_name' => 'news'
-                                );
-                                $query = new WP_Query($args);
-                                if ($query->have_posts()) {
-                                    while ($query->have_posts()) {
-                                        $query->the_post(); ?>
-                                        <!-- Slides -->
-                                        <div class="swiper-slide">
-                                            <div class="swiper-block">
-                                                <h4 class="swiper-block__title"><?php the_title(); ?></h4>
-                                                <?php
-                                                if (has_post_thumbnail()) {
-                                                    the_post_thumbnail();
-                                                } else {
-                                                    echo '<img src="' . get_bloginfo("template_url") . '/assets/img/img-guides.png  " />';
-                                                } ?>
-                                                <time class="swiper-block__time">Дата выхода:
-                                                    <b><?php the_date(); ?></b></time>
-                                                <a href="<?php the_permalink(); ?>"
-                                                   class="swiper-block__link">Подробнее</a>
-                                            </div>
-                                        </div>
-                                    <?php }
-                                    wp_reset_postdata();
-                                } else
-                                    echo '<p class="faq-text">Записи отсутствуют</p>'; ?>
-                                <!-- Slides -->
-                            </div>
+                            <?php echo do_shortcode('[smartslider3 slider="2"]'); ?>
                         </div>
                     </div>
                 </div>
@@ -102,7 +26,7 @@
                     <div class="col-12">
                         <div class="guides-grid">
                             <!--guides-block-->
-                            <div class="guides-block">  
+                            <div class="guides-block">
                                 <div class="title-block">
                                     <h2 class="title-block__title">Гайды</h2>
                                     <a href="<?php echo bloginfo('url'); ?>/category/guides/" class="title-box">
@@ -118,14 +42,15 @@
                                     Разгадывай загадки и заводи питомцев. Познай силу и стань великим героем
                                     Мелерота!
                                 </p>
-                                <div class="guides-list ">
+                                <div class="guides-list guidesAnimate">
                                     <a href="<?php echo bloginfo('url'); ?>/404" class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/items-icon.png"
                                              alt="Предметы"
                                              class="guides-link__img">
                                         <span class="guides-link__text">Предметы</span>
                                     </a>
-                                    <a href="https://tcom-orpg.com/guides/quests/" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/quests/"
+                                       class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/quests-icon.png"
                                              alt="Квесты"
                                              class="guides-link__img">
@@ -157,7 +82,7 @@
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/blessings-icon.png"
                                              alt="Благославления"
                                              class="guides-link__img">
-                                        <span class="guides-link__text">Благославления</span>
+                                        <span class="guides-link__text">Благословения</span>
                                     </a>
                                     <a href="<?php echo bloginfo('url'); ?>/category/guides/talismans/"
                                        class="guides-link">
@@ -180,13 +105,15 @@
                                              class="guides-link__img">
                                         <span class="guides-link__text">Профессии</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/pendants/" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/pendants/"
+                                       class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/pendants-icon.png"
                                              alt="Кулоны"
                                              class="guides-link__img">
                                         <span class="guides-link__text">Кулоны</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/potions/" class="guides-link">
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/potions/"
+                                       class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/potions-icon.png"
                                              alt="Зелья"
                                              class="guides-link__img">
@@ -214,7 +141,7 @@
                                              class="guides-link__img">
                                         <span class="guides-link__text">Парагоны</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/paragons/"
+                                    <a href="<?php echo bloginfo('url'); ?>/category/guides/couriers/"
                                        class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/couriers-icon.png"
                                              alt="Курьеры"
@@ -244,7 +171,7 @@
                             <div class="heading-container">
                                 <div class="title-block">
                                     <h2 class="title-block__title">Галерея</h2>
-                                    <a href="<?php echo bloginfo('url'); ?>/gallery"  class="title-box">
+                                    <a href="<?php echo bloginfo('url'); ?>/gallery" class="title-box">
                                         <span class="title-box__title">Все</span>
                                         <svg class="title-box__icon">
                                             <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-title-icon"></use>
@@ -257,12 +184,13 @@
                             Полезные и позновательские скрины с TCOM.
                         </p>
                         <?php
+                        $posts_per_page = (wp_is_mobile()) ? 4 : 10;
                         $args = array(
                             'post_type' => 'attachment',
                             'post_status' => 'inherit',
                             'orderby' => 'post_date',
                             'order' => 'DESC',
-                            'posts_per_page' => 10,
+                            'posts_per_page' => $posts_per_page,
                             'post_mime_type' => 'image',
                             'tax_query' => array(
                                 array(
@@ -278,7 +206,7 @@
                         $recent_images = get_posts($args);
 
                         if ($recent_images) {
-                            echo '<div class="gallery gallery-grid">';
+                            echo '<div class="gallery gallery-grid galleryAnimate">';
                             foreach ($recent_images as $image) {
                                 $image_url = wp_get_attachment_image_src($image->ID, 'full');
                                 ?>
@@ -321,9 +249,12 @@
                             </p>
                             <div class="faq-grid">
                                 <div class="faq-list">
-                                    <a href="<?php echo bloginfo('url'); ?>/faq/technical-problems/" class="faq-list__link">Технические проблемы:</a>
-                                    <?php $args = array(
-                                        'posts_per_page' => 10,
+                                    <a href="<?php echo bloginfo('url'); ?>/faq/technical-problems/"
+                                       class="faq-list__link">Техническая поддержка Мэлерота:</a>
+                                    <?php
+                                    $posts_per_page = (wp_is_mobile()) ? 4 : 6;
+                                    $args = array(
+                                        'posts_per_page' => $posts_per_page,
                                         'category_name' => 'technical-problems'
                                     );
                                     $query = new WP_Query($args);
@@ -344,9 +275,12 @@
                                         echo '<p class="faq-text pt-3">Записи отсутствуют</p>'; ?>
                                 </div>
                                 <div class="faq-list">
-                                    <a href="<?php echo bloginfo('url'); ?>/faq/gaming-problems/" class="faq-list__link">Игровые проблемы:</a>
-                                    <?php $args = array(
-                                        'posts_per_page' => 10,
+                                    <a href="<?php echo bloginfo('url'); ?>/faq/gaming-problems/"
+                                       class="faq-list__link">Игровые проблемы:</a>
+                                    <?php
+                                    $posts_per_page = (wp_is_mobile()) ? 4 : 6;
+                                    $args = array(
+                                        'posts_per_page' => $posts_per_page,
                                         'category_name' => 'gaming-problems'
                                     );
                                     $query = new WP_Query($args);
@@ -400,8 +334,9 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <?php
+                                $posts_per_page = (wp_is_mobile()) ? 4 : 8;
                                 $args = array(
-                                    'posts_per_page' => 10,
+                                    'posts_per_page' => $posts_per_page,
                                     'post_type' => 'shop_post_type' // Установите тип записи 'shop'
                                 );
 
@@ -471,11 +406,11 @@
                         </p>
 
                         <?php
+                        $posts_per_page = (wp_is_mobile()) ? 4 : 6;
                         $args = array(
-                            'posts_per_page' => 6,
-                            'post_type' => 'video_post_type' // Установите тип записи 'shop'
+                            'posts_per_page' => $posts_per_page,
+                            'post_type' => 'video_post_type'
                         );
-
                         $query = new WP_Query($args); ?>
                         <div class="gallery-grid gallery-grid--video">
                             <?php if ($query->have_posts()) {
@@ -503,21 +438,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                            <div class="heading-container">
-                                <div class="title-block">
-                                    <h2 class="title-block__title">Лор TCOM</h2>
-                                    <a href="<?php echo bloginfo('url'); ?>/category/lore/" class="title-box">
-                                        <span class="title-box__title">Все</span>
-                                        <svg class="title-box__icon">
-                                            <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-title-icon"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <div class="swiper-arrows">
-                                    <div class="swiper-button-prev swiper-button-prev--lore"></div>
-                                    <div class="swiper-button-next swiper-button-next--lore"></div>
-                                </div>
+                        <div class="heading-container">
+                            <div class="title-block">
+                                <h2 class="title-block__title">Лор TCOM</h2>
+                                <a href="<?php echo bloginfo('url'); ?>/category/lore/" class="title-box">
+                                    <span class="title-box__title">Все</span>
+                                    <svg class="title-box__icon">
+                                        <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-title-icon"></use>
+                                    </svg>
+                                </a>
                             </div>
+                            <div class="swiper-arrows">
+                                <div class="swiper-button-prev swiper-button-prev--lore"></div>
+                                <div class="swiper-button-next swiper-button-next--lore"></div>
+                            </div>
+                        </div>
                         <p class="guides-block__subtitle">
                             Погрузись в лор ТСОМ’а и стань истинным воителем Мелерота!
                         </p>
@@ -525,8 +460,10 @@
                         <div class="swiper swiperLore">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                                <?php $args = array(
-                                    'posts_per_page' => 10,
+                                <?php
+                                $posts_per_page = (wp_is_mobile()) ? 4 : 8;
+                                $args = array(
+                                    'posts_per_page' => $posts_per_page,
                                     'category_name' => 'lore'
                                 );
                                 $query = new WP_Query($args);
@@ -545,7 +482,8 @@
                                                 } ?>
                                                 <time class="swiper-block__time">Дата выхода:
                                                     <b><?php the_date(); ?></b></time>
-                                                <a href="<?php the_permalink(); ?>" class="swiper-block__link">Подробнее</a>
+                                                <a href="<?php the_permalink(); ?>"
+                                                   class="swiper-block__link">Подробнее</a>
                                             </div>
                                         </div>
                                     <?php }

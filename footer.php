@@ -1,4 +1,3 @@
-</div>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -36,7 +35,6 @@
             </div>
         </div>
     </div>
-
 </footer>
 <div class="menu-backdrop"></div>
 </body>
