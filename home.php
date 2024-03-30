@@ -43,12 +43,12 @@
                                     Мелерота!
                                 </p>
                                 <div class="guides-list guidesAnimate">
-                                    <a href="<?php echo bloginfo('url'); ?>/404" class="guides-link">
-                                        <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/items-icon.png"
-                                             alt="Предметы"
-                                             class="guides-link__img">
-                                        <span class="guides-link__text">Предметы</span>
-                                    </a>
+<!--                                    <a href="--><?php //echo bloginfo('url'); ?><!--/404" class="guides-link">-->
+<!--                                        <img src="--><?php //echo bloginfo('template_url'); ?><!--/assets/img/icons/items-icon.png"-->
+<!--                                             alt="Предметы"-->
+<!--                                             class="guides-link__img">-->
+<!--                                        <span class="guides-link__text">Предметы</span>-->
+<!--                                    </a>-->
                                     <a href="<?php echo bloginfo('url'); ?>/category/guides/quests/"
                                        class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/quests-icon.png"
@@ -56,13 +56,12 @@
                                              class="guides-link__img">
                                         <span class="guides-link__text">Квесты</span>
                                     </a>
-                                    <a href="<?php echo bloginfo('url'); ?>/404" class="guides-link">
-                                        <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/boss-icon.png"
-                                             alt="Боссы"
-                                             class="guides-link__img">
-                                        <span class="guides-link__text">Боссы</span>
-                                    </a>
-
+<!--                                    <a href="--><?php //echo bloginfo('url'); ?><!--/404" class="guides-link">-->
+<!--                                        <img src="--><?php //echo bloginfo('template_url'); ?><!--/assets/img/icons/boss-icon.png"-->
+<!--                                             alt="Боссы"-->
+<!--                                             class="guides-link__img">-->
+<!--                                        <span class="guides-link__text">Боссы</span>-->
+<!--                                    </a>-->
                                     <a href="<?php echo bloginfo('url'); ?>/category/guides/talents/"
                                        class="guides-link">
                                         <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/talents-icon.png"
@@ -434,69 +433,69 @@
             </div>
         </section>
         <!--lore-section-->
-        <section class="lore-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="heading-container">
-                            <div class="title-block">
-                                <h2 class="title-block__title">Лор TCOM</h2>
-                                <a href="<?php echo bloginfo('url'); ?>/category/lore/" class="title-box">
-                                    <span class="title-box__title">Все</span>
-                                    <svg class="title-box__icon">
-                                        <use href="<?php echo bloginfo('template_url'); ?>/assets/img/sprite.svg#arrow-title-icon"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div class="swiper-arrows">
-                                <div class="swiper-button-prev swiper-button-prev--lore"></div>
-                                <div class="swiper-button-next swiper-button-next--lore"></div>
-                            </div>
-                        </div>
-                        <p class="guides-block__subtitle">
-                            Погрузись в лор ТСОМ’а и стань истинным воителем Мелерота!
-                        </p>
-                        <!-- Slider main container -->
-                        <div class="swiper swiperLore">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <?php
-                                $posts_per_page = (wp_is_mobile()) ? 4 : 8;
-                                $args = array(
-                                    'posts_per_page' => $posts_per_page,
-                                    'category_name' => 'lore'
-                                );
-                                $query = new WP_Query($args);
-                                if ($query->have_posts()) {
-                                    while ($query->have_posts()) {
-                                        $query->the_post(); ?>
-                                        <!-- Slides -->
-                                        <div class="swiper-slide">
-                                            <div class="swiper-block">
-                                                <h4 class="swiper-block__title"><?php the_title(); ?></h4>
-                                                <?php
-                                                if (has_post_thumbnail()) {
-                                                    the_post_thumbnail();
-                                                } else {
-                                                    echo '<img src="' . get_bloginfo("template_url") . '/assets/img/img-guides.png  " />';
-                                                } ?>
-                                                <time class="swiper-block__time">Дата выхода:
-                                                    <b><?php the_date(); ?></b></time>
-                                                <a href="<?php the_permalink(); ?>"
-                                                   class="swiper-block__link">Подробнее</a>
-                                            </div>
-                                        </div>
-                                    <?php }
-                                    wp_reset_postdata();
-                                } else
-                                    echo '<p class="faq-text">Записи отсутствуют</p>'; ?>
-                                <!-- Slides -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!--        <section class="lore-section">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="heading-container">-->
+<!--                            <div class="title-block">-->
+<!--                                <h2 class="title-block__title">Лор TCOM</h2>-->
+<!--                                <a href="--><?php //echo bloginfo('url'); ?><!--/category/lore/" class="title-box">-->
+<!--                                    <span class="title-box__title">Все</span>-->
+<!--                                    <svg class="title-box__icon">-->
+<!--                                        <use href="--><?php //echo bloginfo('template_url'); ?><!--/assets/img/sprite.svg#arrow-title-icon"></use>-->
+<!--                                    </svg>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-arrows">-->
+<!--                                <div class="swiper-button-prev swiper-button-prev--lore"></div>-->
+<!--                                <div class="swiper-button-next swiper-button-next--lore"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <p class="guides-block__subtitle">-->
+<!--                            Погрузись в лор ТСОМ’а и стань истинным воителем Мелерота!-->
+<!--                        </p>-->
+<!--                        <!-- Slider main container -->-->
+<!--                        <div class="swiper swiperLore">-->
+<!--                            <!-- Additional required wrapper -->-->
+<!--                            <div class="swiper-wrapper">-->
+<!--                                --><?php
+//                                $posts_per_page = (wp_is_mobile()) ? 4 : 8;
+//                                $args = array(
+//                                    'posts_per_page' => $posts_per_page,
+//                                    'category_name' => 'lore'
+//                                );
+//                                $query = new WP_Query($args);
+//                                if ($query->have_posts()) {
+//                                    while ($query->have_posts()) {
+//                                        $query->the_post(); ?>
+<!--                                        <!-- Slides -->-->
+<!--                                        <div class="swiper-slide">-->
+<!--                                            <div class="swiper-block">-->
+<!--                                                <h4 class="swiper-block__title">--><?php //the_title(); ?><!--</h4>-->
+<!--                                                --><?php
+//                                                if (has_post_thumbnail()) {
+//                                                    the_post_thumbnail();
+//                                                } else {
+//                                                    echo '<img src="' . get_bloginfo("template_url") . '/assets/img/img-guides.png  " />';
+//                                                } ?>
+<!--                                                <time class="swiper-block__time">Дата выхода:-->
+<!--                                                    <b>--><?php //the_date(); ?><!--</b></time>-->
+<!--                                                <a href="--><?php //the_permalink(); ?><!--"-->
+<!--                                                   class="swiper-block__link">Подробнее</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    --><?php //}
+//                                    wp_reset_postdata();
+//                                } else
+//                                    echo '<p class="faq-text">Записи отсутствуют</p>'; ?>
+<!--                                <!-- Slides -->-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
     </div>
 </main>
 <?php get_footer(); ?>
